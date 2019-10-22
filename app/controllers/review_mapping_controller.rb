@@ -90,7 +90,7 @@ class ReviewMappingController < ApplicationController
     if params[:i_dont_care].nil? && params[:topic_id].nil? && assignment.topics? && assignment.can_choose_topic_to_review?
       flash[:error] = "No topic is selected.  Please go back and select a topic."
     else if @review_mappings.size >= assignment.num_reviews_allowed
-        flash[:notice] = "You cannot do more than " + assignment.num_reviews_allowed.to_s + " reviews based on assignment policy"
+        # flash[:error] = "You cannot do more than " + assignment.num_reviews_allowed.to_s + " reviews based on assignment policy"
         redirect_to controller: 'student_review', action: 'list', id: reviewer.id
     else
 
